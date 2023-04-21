@@ -1,19 +1,20 @@
 #include <stdio.h>
 
-void print_number_factors(int x)
+int get_number_factors(int x, int A[])
 {
-    printf("Number factors: ");
+    int top = 0;
     int divisor = 2;
     while (x != 1)
     {
-        while (x%divisor == 0) 
+        while (x%divisor == 0)
         {
-            printf("%d ", divisor);
+            A[top] = divisor;
+            ++top;
             x /= divisor;
         }
-        divisor += 1;
+        divisor += 1;        
     }
-    printf("\n");
+    return top;
 }
 
 int main(int argc, char* argv[])
@@ -21,7 +22,13 @@ int main(int argc, char* argv[])
     int x;
     printf("Enter number to factorize: ");
     scanf("%d", &x);
-    print_number_factors(x);
+    int A[100];
+    int N;
+    N = get_number_factors(x, A);
+    for (int i = 0; i < N; ++i)
+        printf("%d ", A[i]);
+
+    printf("\n");
 
     return 0;
 }
