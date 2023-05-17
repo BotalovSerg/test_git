@@ -1,13 +1,9 @@
-import numpy as np
+a = 5
+b = 37
+i = 1
 
-z = np.zeros(10)
-
-print(z)
-
-a = np.eye(3)
-print(a)
-
-np.random.seed(42)
-
-a = np.random.random_sample((2, 2, 2))
-print(a)
+while True:
+    if a * i % b == 1:
+        print(i)
+        break
+    i += 1
